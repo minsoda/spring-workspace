@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dice1" class="com.kh.dice.impl.DiceAImpl"/>
+	<bean id="dice2" class="com.kh.dice.impl.DiceBImpl"/>
+	<bean id="dice3" class="com.kh.dice.impl.DiceCImpl"/>
+	
+	
+	<bean id="player1" class="com.kh.dice.Player">
+		<constructor-arg ref="dice1"/>
+	</bean>
+	
+	<bean id="player2" class="com.kh.dice.Player">
+		<property name="dice" ref="dice2"/>
+	</bean>
+	
+	<bean id="player3" class="com.kh.dice.Player">
+	<constructor-arg ref="dice3"/>
+	</bean>
+
+</beans>

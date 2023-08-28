@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="01_Spring"/>
+<aop-project name="03_AOP">
+<aspect-definition advice-class-name="com.kh.aop.LogAspect" advice-method-name="logBeforeWithParam(java.lang.String, java.lang.String)" advice-type="BEFORE" aspect-end-line-number="13" aspect-name="logAspect" aspect-start-line-number="13" factory-id="org.springframework.ide.eclipse.aop.core.annotationAspectDefinitionElementFactory" file="/03_AOP/src/main/webapp/WEB-INF/spring/root-context.xml" pointcut-expression="execution(* com.kh.service.SampleService*.doAdd(String, String)) &amp;&amp; args(str1, str2)" proxy-target-class="false">
+<aop-reference advice-type="BEFORE" bean="1:BeansModel|2:03_AOP|3:src/main/webapp/WEB-INF/spring/root-context.xml|7:beans:8|8:sampleService:8" bean-file="/03_AOP/src/main/webapp/WEB-INF/spring/root-context.xml" bean-start-line="8" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/03_AOP/src/main/webapp/WEB-INF/spring/root-context.xml" source="=03_AOP/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.kh.aop{LogAspect.java[LogAspect~logBeforeWithParam~QString;~QString;" source-start-line="20" target="=03_AOP/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.kh.service{SampleService.java[SampleService~doAdd~QString;~QString;" target-start-line="8"/>
+</aspect-definition>
+<aspect-definition advice-class-name="com.kh.aop.LogAspect" advice-method-name="logBefore" advice-type="BEFORE" aspect-end-line-number="13" aspect-name="logAspect" aspect-start-line-number="13" factory-id="org.springframework.ide.eclipse.aop.core.annotationAspectDefinitionElementFactory" file="/03_AOP/src/main/webapp/WEB-INF/spring/root-context.xml" pointcut-expression="execution(* com.kh.service.SampleService*.*(..))" proxy-target-class="false">
+<aop-reference advice-type="BEFORE" bean="1:BeansModel|2:03_AOP|3:src/main/webapp/WEB-INF/spring/root-context.xml|7:beans:8|8:sampleService:8" bean-file="/03_AOP/src/main/webapp/WEB-INF/spring/root-context.xml" bean-start-line="8" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/03_AOP/src/main/webapp/WEB-INF/spring/root-context.xml" source="=03_AOP/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.kh.aop{LogAspect.java[LogAspect~logBefore" source-start-line="15" target="=03_AOP/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.kh.service{SampleService.java[SampleService~doAdd~QString;~QString;" target-start-line="8"/>
+</aspect-definition>
+</aop-project>
 <aop-project name="02_DI"/>
 </aop-reference-model>
