@@ -27,4 +27,10 @@ public class SampleServiceTest {
 	public void testAdd() throws Exception{
 		log.info(service.doAdd("23", "456"));
 	}
+	
+	// 일부러 에러내기위해 만듬
+//	@Test
+//	public void testAddError() throws Exception {
+//		log.info(service.doAdd("123", "ABC"));
+//	}
 }

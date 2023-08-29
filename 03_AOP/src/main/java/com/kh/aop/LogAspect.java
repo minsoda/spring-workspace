@@ -1,5 +1,10 @@
 package com.kh.aop;
 
+import java.util.Arrays;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -21,6 +26,34 @@ public class LogAspect {
 		log.info("str1 : " + str1);
 		log.info("str2 : " + str2);
 		
+	}
+	
+	@AfterThrowing(pointcut="execution(* com.kh.service.SampleService*.*(..))", throwing="exception")
+	public void logException(Exception exception) {
+		log.info("Exception..!");
+		log.info("exception : " + exception);
+	}
+	
+	@Around("execution(* com.kh.service.SampleService*.*(..))")
+	public Object logTime(ProceedingJoinPoint joinPoint) {
+		// 실행되는 시작점에 맞춰서 시간 찍음
+		long start = System.currentTimeMillis();
+		
+		log.info("Target : " + joinPoint.getTarget());
+		log.info("Param : " + Arrays.toString(joinPoint.getArgs()));
+		
+		Object result = null;
+		
+		try {
+			result = joinPoint.proceed();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		
+		long end = System.currentTimeMillis();
+		
+		log.info("Time : " + (end - start) + "ms");
+		return result;
 	}
 
 }
