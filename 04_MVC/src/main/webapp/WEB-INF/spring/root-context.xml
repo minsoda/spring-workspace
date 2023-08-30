@@ -4,24 +4,23 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-		<property name="url" value="jdbc:oracle:thin:@1521:xe"/>
-		<property name="username" value="spring"/>
-		<property name="password" value="spring"/>
-		<property name="defaultAutoCommit" value="false"/>
+	<!-- 데이터베이스 관련 Commons DBCP bean 등록 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" >
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="username" value="spring" />
+		<property name="password" value="spring" />
+		<property name="defaultAutoCommit" value="false" />
 	</bean>
 	
-	<!-- sql session에 해당되는 곳 위의 dataSource ref로 담아냄-->
+	<!-- SqlSessionTemplate 관련 -->
 	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="configLocation" value="classpath:mybatis-config.xml"/>
-		<property name="dataSource" ref="dataSource"/>
+		<property name="dataSource" ref="dataSource"/> <!-- ref는 위 bean id로 정보 담아냄 -->
 	</bean>
 	
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactoryBean"/>
 	</bean>
-
-	
 	
 </beans>

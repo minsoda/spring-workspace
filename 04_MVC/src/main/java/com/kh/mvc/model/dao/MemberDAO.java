@@ -27,8 +27,9 @@ public class MemberDAO {
 		
 	}
 	
-	public List<Member> showAllMember(Member vo){
-		return sqlSession.selectList("memberMapper.showAllMember", vo);
+	// 파라미터 없어서 바로 감
+	public List<Member> showAllMember(){
+		return sqlSession.selectList("memberMapper.showAllMember");
 	}
 	
 	public List<Member> findMember(String keyword) {

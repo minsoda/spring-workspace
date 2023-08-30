@@ -26,17 +26,20 @@ public class MemberController {
 		return "search";
 	}
 	
+	// request.setAttribute = Model로 함
 	@RequestMapping("find")
 	public String find(String keyword, Model model) {
 		System.out.println(keyword);
 		// 서비스 - 비즈니스 로직 처리!
 		// -> list 값! 데이터 바인딩 -> Model!
-		List<Member> list =  new MemberService().findMember(keyword);
+		List<Member> list =  service.findMember(keyword);
 		
-		if(list != null) {
+		//list는 항상 있어서 size로 조건 걸어줌
+		if(list.size() > 0) {
 			model.addAttribute("list", list);
+			return "find_ok";
 		}
-		return "find_ok";// "find_fal"
+		return "find_fail";
 	}
 	
 	@RequestMapping("register")
@@ -49,6 +52,7 @@ public class MemberController {
 		System.out.println(member);
 		// 바인딩 없이 index.jsp로 넘길때 이렇게 사용!
 		// 비즈니스 로직
+		service.registerMember(member);
 		return "redirect:/";
 	}
 	
@@ -62,40 +66,49 @@ public class MemberController {
 	// - > HttpServletRequest request
 	// -> return "login_result"
 	@RequestMapping("signIn")
-	public String signIn(Member member) {
-		new MemberService().login(member);
-		
+	public String signIn(Member vo, HttpSession session) {
+		Member member = service.login(vo);
+
+		if(member != null) {
+			session.setAttribute("vo", member);
+			
+		}
 		return "login_result";
 	}
 	
 	// allMember - 비즈니스 로직 포함, 데이터 바인딩 - Model
 	// --> return "find_ok";
 	@RequestMapping("allMember")
-	public String allMember(Member member) {
+	public String allMember(Model model) {
+		List<Member> list = service.showAllMember();
+		model.addAttribute("list", list);
 		return "find_ok";
 	}
 	
 	// logout - 로그아웃 기능!
 	@RequestMapping("logout")
-	public String logout(Member member) {
-		return "logout";
+	public String logout(HttpSession session) {
+		if(session.getAttribute("vo")!=null) {
+			session.invalidate();
+		}
+		return "redirect:/";
 	}
 	
 	// update - 페이지 이동
 	@RequestMapping("update")
-	public String update(Member member) {
+	public String update() {
 		return "update";
-	}
+	} 
 	
 	// updateMember - 비즈니스 로직 포함 -> 파라미터 request 필요
 	@RequestMapping("updateMember")
-	public String updateMember(Member member, HttpServletRequest request) {
-		new MemberService().updateMember(member);
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("member", member);
-		
-		return "update_result";
+	public String updateMember(Member vo, HttpSession session) {
+		service.updateMember(vo);
+		if(session.getAttribute("vo")!= null) {
+			session.setAttribute("vo", vo);
+		}
+	
+		return "redirect:/";
 	}
 	
 	

@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<h1>로그인 페이지</h1>
+	<form action="signIn" method="post">
+		아이디 : <input type="text" name="id" required><br>
+		비밀번호 : <input type="password" name="pwd" required ><br>
+		<input type="submit" value="로그인">
+	</form>
+	
 </body>
 </html>
