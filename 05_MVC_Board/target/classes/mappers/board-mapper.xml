@@ -9,26 +9,42 @@
 	</insert>
 	
 	<select id="selectAll" resultType="Board" >
-		SELECT no, title, content, writer, regdate
-		FROM board
+	<!-- SQL문 < 등호등을 사용하려면 아래의 문구처럼 해주기! -->
+	
+		<![CDATA[
+		SELECT NUM, NO, TITLE, WRITER, REGDATE
+			FROM (
+			    SELECT /*+ INDEX_DESC(board PK_BOARD) */
+			    ROWNUM NUM, NO, TITLE, WRITER, REGDATE
+			    FROM board
+			    WHERE ROWNUM <= #{page} * #{amount}
+			)
+		WHERE NUM > (#{page} - 1) * #{amount}
+		]]>
 </select>
 
-	<select id="select" resultType="Board">
-		SELECT no, title, content, writer
+	<!-- 총갯수 db에서 가져오려고  -->
+	<select id="getTotal" resultType="int">
+		SELECT count(*) FROM board
+	</select>
+
+	<!--  가져오는 키가 int라서 int 작성 -->
+	<select id="select" parameterType="int" resultType="Board">
+		SELECT *
 		FROM board
-		WHERE 
+		WHERE no = #{no}
 	</select>
 	
 	<update id="update" parameterType="Board">
 		UPDATE board
-		SET
-		WHERE
+		SET title = #{title}, content=#{content}
+		WHERE no = #{no}
 	</update>
 	
-	<delete id="delete" parameterType="Board">
+	<delete id="delete" parameterType="int">
 		DELETE 
 		FROM board
-		WHERE 
+		WHERE no = #{no}
 	</delete>
 		
 </mapper>

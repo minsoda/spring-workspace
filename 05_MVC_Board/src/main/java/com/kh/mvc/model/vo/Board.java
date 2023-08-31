@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Board {
 
+	
+	private int num; //rownum을 num으로 해줘서 추가해줍
 	private int no;
 	private String title;
 	private String content;
