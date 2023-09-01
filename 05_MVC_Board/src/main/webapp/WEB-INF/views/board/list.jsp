@@ -49,7 +49,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
           <c:forEach items="${list}" var="board">
             <tr>
               <td>${board.num}</td>
-              <td><a href="/board/view?no=${board.no}">${board.title}></a></td>
+              <td><a href="/board/view?no=${board.no}">${board.title}</a></td>
               <td>${board.writer}</td>
               <td>
                 <fmt:formatDate
