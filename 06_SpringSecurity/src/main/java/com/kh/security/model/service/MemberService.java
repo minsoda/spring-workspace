@@ -19,7 +19,7 @@ public class MemberService implements UserDetailsService{
 		return dao.registerMember(vo);
 	}
 
-	@Override // login 하고 post하는순간 낚아채서 username이 여기로 옴. member에서 id로 해놨기때문에 연결이됨.
+	@Override // login 하고 post하는순간 낚아채서 username(jsp에 정의한 name값)이 여기로 옴. member에서 id로 해놨기때문에 연결이됨.
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Member member = dao.getMemberById(username);
 		
