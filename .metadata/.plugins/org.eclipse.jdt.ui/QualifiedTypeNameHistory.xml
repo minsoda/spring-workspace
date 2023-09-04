@@ -26,4 +26,5 @@
     <fullyQualifiedTypeName name="com.kh.mvc.model.vo.Criteria"/>
     <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="org.springframework.util.FileCopyUtils"/>
+    <fullyQualifiedTypeName name="com.kh.security.model.vo.Member"/>
 </qualifiedTypeNameHistroy>

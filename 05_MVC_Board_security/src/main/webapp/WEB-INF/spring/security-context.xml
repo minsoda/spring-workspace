@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-5.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="loginSuccess" class="com.kh.mvc.security.LoginSuccessHandler"/>
+	
+	<security:http>
+		<security:intercept-url pattern="/member" access="hasAnyRole('ROLE_MEMBER')"/>
+		<security:form-login login-page="/login" authentication-success-handler-ref="loginSuccess"/>
+	</security:http>
+
+</beans>
