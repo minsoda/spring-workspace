@@ -27,7 +27,7 @@ pageEncoding="UTF-8"%>
       <!-- multipart/form-data 이미지 첨부한거 같이 보냄! -->
       <form  action="/board/update" method="post" enctype="multipart/form-data">
       <input type="hidden" name="no" value="${vo.no}">
-      <input type="hiddn" name="url" value="${vo.url}">
+      <input type="hidden" name="url" value="${vo.url}">
         <div class="form-group">
           <label for="title">Title</label>
           <input type="text" name="title" id="title" value="${vo.title}" class="form-control" />

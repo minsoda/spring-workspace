@@ -6,12 +6,12 @@
 		<setting name="jdbcTypeForNull" value="NULL"/>
 	</settings>
 	
+	<!-- package로 묶어서 사용할수있다 별칭은 class명이됨 -->
 	<typeAliases>
-		<typeAlias type="com.kh.mvc.model.vo.Board" alias="Board"/>
+		<package name="com.kh.mvc.model.vo"/>
 	</typeAliases>
 	
 	<!-- 단위 테스트를 위해서 추가-->
-
 	<environments default="develop">
 	<environment id="develop">
 		<transactionManager type="JDBC"/>
@@ -25,8 +25,10 @@
 	</environment>
 </environments>
 	
+	<!-- mapper은 해야함 -->
 	<mappers>
 		<mapper resource="mappers/board-mapper.xml"/>
+		<mapper resource="mappers/member-mapper.xml"/>
 	</mappers>
 	
 </configuration>

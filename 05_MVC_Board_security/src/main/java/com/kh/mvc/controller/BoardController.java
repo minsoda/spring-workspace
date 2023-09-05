@@ -25,7 +25,7 @@ import com.kh.mvc.model.vo.Paging;
 public class BoardController {
 
 	// 많이 사용되서 전역변수로 활용함
-	String path = "D:\\spring-workspace\\05_MVC_Board\\src\\main\\webapp\\upload\\";
+	String path = "D:\\spring-workspace\\05_MVC_Board_security\\src\\main\\webapp\\upload\\";
 	
 	@Autowired
 	private BoardService service;

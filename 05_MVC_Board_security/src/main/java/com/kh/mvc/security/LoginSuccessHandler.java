@@ -11,6 +11,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 
 public class LoginSuccessHandler implements AuthenticationSuccessHandler{
 
+	//로그인시 접근가능한지
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {

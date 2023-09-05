@@ -14,7 +14,6 @@
     <fullyQualifiedTypeName name="org.aspectj.lang.annotation.Before"/>
     <fullyQualifiedTypeName name="org.aspectj.lang.annotation.After"/>
     <fullyQualifiedTypeName name="org.aspectj.lang.ProceedingJoinPoint"/>
-    <fullyQualifiedTypeName name="com.kh.mvc.model.vo.Member"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="org.springframework.test.context.junit4.SpringJUnit4ClassRunner"/>
@@ -27,4 +26,11 @@
     <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="org.springframework.util.FileCopyUtils"/>
     <fullyQualifiedTypeName name="com.kh.security.model.vo.Member"/>
+    <fullyQualifiedTypeName name="org.springframework.security.core.authority.SimpleGrantedAuthority"/>
+    <fullyQualifiedTypeName name="com.kh.mvc.model.vo.Member"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
+    <fullyQualifiedTypeName name="java.security.Provider.Service"/>
+    <fullyQualifiedTypeName name="com.kh.api.dao.PhoneDAOImpl"/>
 </qualifiedTypeNameHistroy>
