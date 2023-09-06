@@ -14,39 +14,38 @@ public class PhoneDAOImpl implements PhoneDAO{
 
 	@Autowired
 	private SqlSessionTemplate session;
-	
+
 	@Override
 	public int insert(Phone phone) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int delete(List<String> list) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public Phone select(Phone phone) {
-		return session.selectOne("phone.select", phone);
-	}
-
-	@Override
-	public List<Phone> select() {
-		return session.selectList("phone.select");
-	}
-
-	@Override
-	public UserInfo select(UserInfo user) {
-		// TODO Auto-generated method stub
-		return null;
+		return session.insert("phone.insert", phone);
 	}
 
 	@Override
 	public int update(Phone phone) {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.update("phone.update", phone);
 	}
+
+	@Override
+	public int delete(String num) {
+		return session.delete("phone.delete", num);
+	}
+
+	@Override
+	public Phone select(String num) {
+		return session.selectOne("phone.select", num);
+	}
+
+	@Override
+	public List<Phone> select() {
+		// 동적쿼리 때문에 null 적어줘야됨
+		return session.selectList("phone.select", null);
+	}
+
+	@Override
+	public UserInfo select(UserInfo user) {
+		return session.selectOne("phone.selectUser", user);
+	}
+	
+	
 
 }

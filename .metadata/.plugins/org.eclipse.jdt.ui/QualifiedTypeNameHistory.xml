@@ -33,4 +33,8 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
     <fullyQualifiedTypeName name="java.security.Provider.Service"/>
     <fullyQualifiedTypeName name="com.kh.api.dao.PhoneDAOImpl"/>
+    <fullyQualifiedTypeName name="com.kh.api.model.Phone"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.kh.api.dao.PhoneDAO"/>
+    <fullyQualifiedTypeName name="com.kh.api.service.PhoneService"/>
 </qualifiedTypeNameHistroy>

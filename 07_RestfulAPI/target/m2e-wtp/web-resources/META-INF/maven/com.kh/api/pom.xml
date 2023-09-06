@@ -161,6 +161,15 @@
 			    <artifactId>commons-dbcp</artifactId>
 			    <version>1.4</version>
 			</dependency>
+		
+		<!-- 포스트맨 form-data 입력위해 하지만 안됨!! -->	
+		<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
+		<dependency>
+		    <groupId>org.codehaus.jackson</groupId>
+		    <artifactId>jackson-mapper-asl</artifactId>
+		    <version>1.9.13</version>
+		</dependency>
+			
 			    
 	</dependencies>
     <build>
